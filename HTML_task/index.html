@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <label for="Name">Name: </label>
+    <input type="text" id="Name" name="Name"><br /><br />
+    <label for="TicCount">Ticket Count: </label>
+    <input type="text" id="TicCount" name="TicCount"><br /><br />
+    <label for="mail">Email: </label>
+    <input type="mail" id="mail" name="mail"><br /><br />
+    <label for="movie">Movie: </label>
+    <input type="movie" id="movie" name="movie"><br /><br />
+    <p id="p">20 tickets available</p>
+    <button name="Submit" id="Submit" onclick="app()">Submit</button>
+    <div>
+        <table style="width:100%;margin-top:5%;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Ticket Count</th>
+                    <th>Mail</th>
+                    <th>Movie</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="ticketData" style="width: 100%;margin-left: 20%;margin-top: 5%;">
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="../HTML_task/app.js"></script>
+
+</html>
