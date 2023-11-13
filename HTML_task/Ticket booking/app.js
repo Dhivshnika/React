@@ -1,10 +1,6 @@
 const price = 450;
 let tickets = 20;
-var Pname = [];
-var count = [];
-var mailId = [];
-var movName = [];
-var ticprice = [];
+var Reservation = [];
 var save = -1;
 function app() {
     var Name = document.getElementById("Name").value;
@@ -20,22 +16,25 @@ function app() {
     else if (tickets >= 0) {
         document.getElementById('p').innerHTML = tickets + " tickets available ";
         if (save == -1) {
-            Pname.push(Name);
-            count.push(Ticket_Count);
-            mailId.push(mail);
-            movName.push(movie);
-            ticprice.push(ticketPrice);
-            console.log(Pname);
-            display(Name, Ticket_Count, mail, ticketPrice, movie, tickets);
+            Reservation.push({
+                Name: Name,
+                Ticket_Count: Ticket_Count,
+                mail: mail,
+                movie: movie,
+                ticketPrice: ticketPrice
+            })
+            console.log(Reservation);
+            display(Reservation[Reservation.length - 1], tickets);
         }
         else {
-            Pname.splice(save, 0, Name);
-            count.splice(save, 0, Ticket_Count);
-            mailId.splice(save, 0, mail);
-            movName.splice(save, 0, movie);
-            ticprice.splice(save, 0, ticketPrice);
-            console.log(Pname);
-            update(save, Name, Ticket_Count, mail, ticketPrice, movie, tickets);
+            Reservation[save] = {
+                Name: Name,
+                Ticket_Count: Ticket_Count,
+                mail: mail,
+                movie: movie,
+                ticketPrice: ticketPrice
+            };
+            update(save, tickets);
             save = -1;
         }
     }
@@ -44,88 +43,65 @@ function app() {
     }
 
 }
-function display(Name, Ticket_Count, mail, ticketPrice, movie, tickets) {
+function display(Reservation, tickets) {
     const table = document.getElementById("ticketData");
     const row = table.insertRow(table.rows.length);
     row.classList.add('tableRow')
-    const nameCell = row.insertCell(0);
-    const countCell = row.insertCell(1);
-    const mailCell = row.insertCell(2);
-    const movieCell = row.insertCell(3);
-    const priceCell = row.insertCell(4);
-    const editcell = row.insertCell(5);
-    const deletecell = row.insertCell(6);
+    for (let key in Reservation) {
+        const cell = row.insertCell();
+        cell.classList.add('tablecell');
+        cell.textContent = Reservation[key];
+    }
 
-    nameCell.classList.add('tablecell1')
-    countCell.classList.add('tablecell2')
-    mailCell.classList.add('tablecell3')
-    movieCell.classList.add('tablecell4')
-    priceCell.classList.add('tablecell5')
+    const editCell = row.insertCell();
+    editCell.innerHTML = '<button onclick="editRow(this)">Edit</button>';
 
-    nameCell.textContent = Name;
-    countCell.textContent = Ticket_Count;
-    movieCell.textContent = movie;
-    mailCell.textContent = mail;
-    priceCell.textContent = ticketPrice;
+    const deleteCell = row.insertCell();
+    deleteCell.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
 
-    editcell.innerHTML = '<button onclick="editRow(this)">edit</button>';
-    deletecell.innerHTML = '<button onclick="deleteRow(this)">delete</button>';
     reset();
 }
 function deleteRow(button) {
     let row = button.parentNode.parentNode;
     let index = row.rowIndex;
     console.log(tickets);
-    console.log("price:" + parseInt(count[index - 1]));
-    tickets += parseInt(count[index - 1]);
+    console.log("price:" + parseInt(Reservation[index - 1].Ticket_Count));
+    tickets += parseInt(Reservation[index - 1].Ticket_Count);
     console.log(tickets);
     document.getElementById("ticketData").deleteRow(index - 1);
     document.getElementById('p').innerHTML = tickets + " tickets available ";
-    Pname.pop(index - 1);
-    count.pop(index - 1);
-    mailId.pop(index - 1);
-    movName.pop(index - 1);
-    ticprice.pop(index - 1);
-    console.log(index - 1);
+    Reservation.splice(index - 1, 1);
 
 }
 function editRow(button) {
     var row = button.parentNode.parentNode;
     var index = row.rowIndex;
-    document.getElementById('Name').value = Pname[index - 1];
-    document.getElementById('TicCount').value = count[index - 1];
-    document.getElementById('mail').value = mailId[index - 1];
-    document.getElementById('movie').value = movName[index - 1];
-    tickets = tickets + parseInt(count[index - 1]);
-    save = index;
+    document.getElementById('Name').value = Reservation[index - 1].Name;
+    document.getElementById('TicCount').value = Reservation[index - 1].Ticket_Count;
+    document.getElementById('mail').value = Reservation[index - 1].mail;
+    document.getElementById('movie').value = Reservation[index - 1].movie;
+    tickets = tickets + parseInt(Reservation[index - 1].Ticket_Count);
+    save = index - 1;
 }
-function update(save, Name, Ticket_Count, mail, ticketPrice, movie, tickets) {
+function update(save, tickets) {
     const table = document.getElementById("ticketData");
     const row = table.insertRow(save);
-    row.classList.add('tableRow')
-    const nameCell = row.insertCell(0);
-    const countCell = row.insertCell(1);
-    const mailCell = row.insertCell(2);
-    const movieCell = row.insertCell(3);
-    const priceCell = row.insertCell(4);
-    const editcell = row.insertCell(5);
-    const deletecell = row.insertCell(6);
+    row.classList.add('tableRow');
+    for (let key in Reservation[save]) {
+        const cell = row.insertCell();
+        cell.classList.add('tablecell');
+        cell.textContent = Reservation[save][key];
+    }
+    const editCell = row.insertCell();
+    editCell.innerHTML = '<button onclick="editRow(this)">Edit</button>';
 
-    nameCell.classList.add('tablecell1')
-    countCell.classList.add('tablecell2')
-    mailCell.classList.add('tablecell3')
-    movieCell.classList.add('tablecell4')
-    priceCell.classList.add('tablecell5')
+    const deleteCell = row.insertCell();
+    deleteCell.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
 
-    nameCell.textContent = Name;
-    countCell.textContent = Ticket_Count;
-    movieCell.textContent = movie;
-    mailCell.textContent = mail;
-    priceCell.textContent = ticketPrice;
+    document.getElementById('p').innerHTML = tickets + " tickets available ";
 
-    editcell.innerHTML = '<button onclick="editRow(this)">edit</button>';
-    deletecell.innerHTML = '<button onclick="deleteRow(this)">delete</button>';
-    document.getElementById("ticketData").deleteRow(save - 1);
+    document.getElementById("ticketData").deleteRow(save + 1);
+
     reset();
 }
 function reset() {
