@@ -1,0 +1,70 @@
+body {
+    margin: 0px;
+    background-color: lavender;
+    display: flex;
+    justify-content: center;
+}
+
+.loginBox {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.designImg {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+.button {
+    margin-top: 20px;
+    background-color: rgb(134, 95, 223);
+    width: 40%;
+    padding: 7px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+.login {
+    text-align: center;
+}
+
+.mailBox {
+    display: flex;
+    align-items: center;
+    background-color: lavender;
+    margin-top: 20px;
+    border-radius: 5px;
+
+}
+
+.passwordBox {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background-color: lavender;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+input {
+    border: none;
+    outline: none;
+    background-color: lavender;
+    font-size: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.mainContainer {
+    display: flex;
+    margin-top: 150px;
+    border-radius: 5px;
+}
