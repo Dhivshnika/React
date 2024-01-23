@@ -1,0 +1,15 @@
+table,
+tr,
+td,
+th {
+    border: 1px solid black;
+}
+
+td {
+    padding: 5px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+}
