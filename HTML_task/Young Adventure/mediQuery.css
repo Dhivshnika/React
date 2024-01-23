@@ -1,0 +1,131 @@
+@media only screen and (max-width:1262px) {
+
+    .menu,
+    .location {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .name img {
+        width: 70%;
+        height: 10%;
+    }
+
+    .name {
+        display: flex;
+        justify-content: center;
+    }
+
+    .headerContent p {
+        text-align: center;
+    }
+
+    .headerMain {
+        gap: 0px;
+    }
+
+    .countryRatio {
+        flex-direction: column;
+    }
+
+    .ratio1Main,
+    .ratio2Main,
+    .ratio3Main {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width:426px) {
+    .headerBorder {
+        width: 87%;
+    }
+
+    .ratio1Main,
+    .ratio2Main,
+    .ratio3Main {
+        gap: 10px;
+    }
+
+    .mailEntry .button {
+        width: 15%;
+        font-size: 10px;
+    }
+
+    .mailEntry input,
+    #mail:focus {
+        font-size: 10px;
+    }
+
+    .mailEntry {
+        width: 88%;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .seenContent {
+        font-size: 33px;
+        font-family: monospace;
+        width: 98%;
+    }
+
+    .left,
+    .right {
+        width: 40%;
+    }
+
+    .recentContent p {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width:769px)and (min-width:426px) {
+    .headerBorder {
+        width: 90%;
+    }
+
+    .countryRatio {
+        gap: 10px;
+    }
+
+    .mailEntry .button {
+        width: 15%;
+        font-size: 11px;
+    }
+
+    .mailEntry input,
+    #mail:focus {
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width:1025px)and (min-width:769px) {
+    .headerBorder {
+        width: 94%;
+    }
+
+    .countryRatio {
+        gap: 3px;
+    }
+}
+
+@media only screen and (max-width:694px) {
+
+    .countryRatio {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media only screen and (max-width:1025px) {
+
+    .checkbox {
+        flex-direction: column;
+    }
+
+    .select1,
+    .select2,
+    .select3 {
+        width: 100%;
+    }
+}

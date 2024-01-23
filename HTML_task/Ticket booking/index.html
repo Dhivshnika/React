@@ -6,19 +6,30 @@
 </head>
 
 <body>
-
-    <label for="Name">Name: </label>
-    <input type="text" id="Name" name="Name"><br /><br />
-    <label for="TicCount">Ticket Count: </label>
-    <input type="text" id="TicCount" name="TicCount"><br /><br />
-    <label for="mail">Email: </label>
-    <input type="mail" id="mail" name="mail"><br /><br />
-    <label for="movie">Movie: </label>
-    <input type="movie" id="movie" name="movie"><br /><br />
-    <p id="p">20 tickets available</p>
-    <button name="Submit" id="Submit" onclick="app()">Submit</button>
-    <div>
-        <table style="width:100%;margin-top:5%;">
+    <div class="main">
+        <div class="info">
+            <table class="tbb">
+                <tr class="row">
+                    <td class="data"><label for="Name">Name </label></td>
+                    <td class="data"><input type="text" id="Name" name="Name"></td>
+                </tr>
+                <tr class="row">
+                    <td class="data"><label for="TicCount">Ticket Count </label></td>
+                    <td class="data"><input type="text" id="TicCount" name="TicCount"></td>
+                </tr>
+                <tr class="row">
+                    <td class="data"><label for="mail">Email </label></td>
+                    <td class="data"><input type="mail" id="mail" name="mail"></td>
+                </tr>
+                <tr class="row">
+                    <td class="data"><label for="movie">Movie </label></td>
+                    <td class="data"><input type="movie" id="movie" name="movie"></td>
+                </tr>
+            </table>
+            <p id="p">20 tickets available</p>
+            <button name="Submit" id="Submit" onclick="app()">Submit</button>
+        </div>
+        <table class="display">
             <thead>
                 <tr>
                     <th>Name</th>

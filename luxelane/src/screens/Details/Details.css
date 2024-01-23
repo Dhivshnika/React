@@ -1,0 +1,218 @@
+.priceContainer {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.productInfo h2 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.productInfo {
+    margin-left: 20px;
+    width: 37%;
+}
+
+.descSel {
+    font-size: 20px;
+    color: #535665;
+    margin-top: 5px;
+}
+
+.separatorSel {
+    border-bottom: 1px solid #d4d5d9;
+    width: 100%;
+}
+
+.priceBox {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.priceSel {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.fullAmtSel {
+    color: #535665;
+    font-size: 20px;
+    text-decoration: line-through;
+    font-size: 17px;
+}
+
+.offSel {
+    color: orange;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.priceBox p {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.starBox1 {
+    display: flex;
+    align-items: center;
+    border: 1px solid #EAEAEC;
+    width: fit-content;
+    margin-bottom: 20px;
+    padding-right: 2px;
+}
+
+.starBox1 p {
+    margin: 5px;
+}
+
+.tax {
+    color: #03A685;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.sizeDiv {
+    border: 1px solid #FF3F6C;
+    border-radius: 30px;
+    width: fit-content;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #FF3F6C;
+}
+
+.addBag {
+    display: flex;
+    background-color: #FF3F6C;
+    align-items: center;
+    width: 40%;
+    justify-content: center;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.addBag p {
+    margin: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.navBox {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.wishBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #c8cad4;
+    margin-top: 20px;
+    width: 40%;
+    border-radius: 4px;
+
+}
+
+.wishBox p {
+    margin: 13px;
+
+}
+
+.addBag:hover {
+    background-color: rgb(255, 63, 108, 0.8);
+}
+
+.wishBox:hover {
+    border: 1px solid black;
+}
+
+.returnText {
+    font-size: 13px;
+    color: #282c3f;
+}
+
+.detailPriceDesc {
+    display: flex;
+    gap: 5px;
+}
+
+.priceDesc {
+    font-weight: bold;
+}
+
+.fullAmtDesc {
+    color: #94969F;
+    text-decoration: line-through;
+}
+
+.offDesc {
+    color: orange;
+    font-weight: 700;
+}
+
+.seller span {
+    color: #FF3E6C;
+    font-weight: 700;
+}
+
+.seller {
+    margin-top: 0px;
+}
+
+.detailPriceDesc p {
+    margin-bottom: 10px;
+}
+
+.deliveryBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pincode {
+    display: flex;
+    border: 1px solid #94969F;
+    width: 45%;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.pincode input {
+    border: none;
+    font-size: 15px;
+    margin-left: 10px;
+    height: 30px;
+}
+
+.pincode input:focus {
+    outline: none;
+    font-size: 15px;
+}
+
+.pincode p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #FF3E6C;
+    font-weight: bold;
+}
+
+.firstPara {
+    font-size: 13px;
+    color: #282c3f;
+    padding-bottom: 5px;
+}
+
+.secondPara {
+    font-size: 16px;
+    color: #282c3f;
+}
+
+.priceConImg:hover {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, .05);
+    height: 550px;
+    width: 415px;
+}

@@ -41,7 +41,6 @@ function app() {
     else {
         alert('no tickets available');
     }
-
 }
 function display(Reservation, tickets) {
     const table = document.getElementById("ticketData");
@@ -93,10 +92,10 @@ function update(save, tickets) {
         cell.textContent = Reservation[save][key];
     }
     const editCell = row.insertCell();
-    editCell.innerHTML = '<button onclick="editRow(this)">Edit</button>';
+    editCell.innerHTML = '<button class="edit" onclick="editRow(this)">Edit</button>';
 
     const deleteCell = row.insertCell();
-    deleteCell.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
+    deleteCell.innerHTML = '<button class="delete" onclick="deleteRow(this)">Delete</button>';
 
     document.getElementById('p').innerHTML = tickets + " tickets available ";
 

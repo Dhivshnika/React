@@ -1,0 +1,324 @@
+body {
+    margin: 0px;
+    background-image: url("https://youngadventuress.com/wp-content/uploads/2012/11/test3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.headerMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    width: 35%;
+}
+
+.location {
+    display: flex;
+    justify-content: space-evenly;
+    width: 35%;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.header a:hover {
+    color: #6dc9b9;
+    text-decoration: none;
+}
+
+.name {
+    margin-top: 20px;
+}
+
+.headerContent p {
+    font-size: 30px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.headerButton p {
+    font-size: 20px;
+    color: white;
+    border: 5px solid white;
+    padding: 10px;
+}
+
+.headerButton p:hover {
+    color: #6dc9b9;
+    border: 5px solid #6dc9b9;
+}
+
+.headerBorder {
+    background-image: url("https://youngadventuress.com/wp-content/themes/pf-youngadventuress-2016/img/min/bg-hero-pattern.png");
+    padding: 20px;
+    width: 95%;
+    background-repeat: repeat-x;
+}
+
+.centerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+}
+
+.seen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seenContent {
+    color: black;
+    font-size: 20px;
+    padding: 5px;
+    font-family: monospace;
+}
+
+.countryBox {
+    border: 10px solid #6dc9b9;
+    padding: 10px;
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+.countryBox:hover,
+.countryContent:hover {
+    border: 10px solid #404040;
+}
+
+.countryContent {
+    border: 10px solid #6dc9b9;
+    background-image: url("https://youngadventuress.com/wp-content/uploads/2012/11/bg-stats.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.countryContent p {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Trirong", serif;
+    margin: 5px;
+}
+
+.countryRatio {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.ratio1,
+.ratio2,
+.ratio3 {
+    background-image: url("https://youngadventuress.com/wp-content/themes/pf-youngadventuress-2016/img/bg-holder.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.countryRatio span {
+    font-size: 50px;
+    padding: 50px;
+    color: white;
+}
+
+.ratio1Main,
+.ratio2Main,
+.ratio3Main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    gap: 20px;
+}
+
+.mailBox {
+    border: 10px solid #6dc9b9;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+}
+
+.fa {
+    font-size: 50px;
+}
+
+.fa:hover {
+    color: #6dc9b9;
+}
+
+.mailBox p {
+    font-size: 35px;
+    color: #404040;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+.checkbox {
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+label {
+    font-size: 20px;
+}
+
+.mailEntry {
+    display: flex;
+    width: 70%;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.select1,
+.select2,
+.select3 {
+    width: 50%;
+    display: flex;
+    justify-content: left;
+    margin-top: 10px;
+    align-items: baseline;
+}
+
+.mailEntry input {
+    width: 70%;
+    border: 0px;
+    background-color: #efefef;
+    border: 10px solid#efefef;
+    font-size: 15px;
+}
+
+.mailEntry .button {
+    width: 10%;
+    border: 0px;
+    background-color: #6dc9b9;
+    border: 10px solid #6dc9b9;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+}
+
+#mail:focus {
+    width: 70%;
+    border: 0px;
+    background-color: #efefef;
+    font-size: 15px;
+    outline: 1px solid #6dc9b9;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.recent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recentContent {
+    color: black;
+    padding: 5px;
+    font-family: monospace;
+    text-align: center;
+}
+
+.recentContent p {
+    font-size: 20px;
+
+}
+
+.adventureImgMain {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.adventureImg1 {
+    background-image: url("https://youngadventuress.com/wp-content/uploads/2023/12/136A6960-Enhanced-NR-copy-150x150.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 10px solid #6dc9b9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+/* .adventureImg1Content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} */
+
+.adventureImg1Content h4 {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    opacity: 0;
+}
+
+.adventureImg1Content p {
+    color: white;
+    text-align: center;
+    font-size: 17px;
+}
+
+.adventureImg1Content a {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.adventureImg1box:hover {
+    display: unset;
+
+}
+
+.adventureImg1box {
+    /* background-image: url("https://youngadventuress.com/wp-content/uploads/2023/12/136A6960-Enhanced-NR-copy-150x150.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; */
+    width: 100%;
+}
