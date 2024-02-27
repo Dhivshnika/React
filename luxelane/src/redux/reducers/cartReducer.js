@@ -6,7 +6,9 @@ const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ADD_CART:
             const itemExists = state.some(item => item.id === action.payload.id);
-            if (itemExists) return state;
+            if (itemExists) {
+                return state.map(item => item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item);
+            }
             return [...state, action.payload];
         case actionTypes.REMOVE_CART:
             return state.filter(item => item.id !== action.payload.id);

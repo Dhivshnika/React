@@ -11,6 +11,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 function Cart() {
     const dispatch = useDispatch();
+    let option = [];
+    for (let i = 1; i <= 100; i++) {
+        option.push(<option value={i}>{i}</option>);
+    }
     const cartItems = useSelector((state) => state.cartReducer);
     const [empty, setEmpty] = useState(null);
     const handleSelect = (e, itemId) => {
@@ -112,16 +116,7 @@ function Cart() {
                                                     <div className='quantity'>
                                                         <p>Qty:</p>
                                                         <select value={item.quantity} onChange={(e) => handleSelect(e, item.id)} className='select'>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {option}
                                                         </select>
                                                     </div>
                                                 </div>

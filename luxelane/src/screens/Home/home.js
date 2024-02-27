@@ -13,12 +13,15 @@ import red from '../../assets/red.png';
 import blue from '../../assets/blue.png';
 import white from '../../assets/white.png';
 import star from '../../assets/star.png'
+import heartRed from '../../assets/heartRed.png'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 
-function Home({ cartItems, setCartItems }) {
-    const items = [
+function Home() {
+    const cartItems = useSelector((state) => state.cartReducer);
+    const wishItems = useSelector((state) => state.wishReducer);
+    const itemsList = [
         {
             id: 1,
             name: "NERF",
@@ -30,7 +33,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "Supercom Net",
             quantity: 1,
             image: "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/23310486/2023/5/30/fa6958f4-3d3b-4564-9951-0f2862bed60e1685427406577-NERF-Boys-Activity-Toys-and-Games-5791685427406254-1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23310486/2023/5/30/be4a0bc1-e2ed-452a-a671-aae99aa7934d1685427406563-NERF-Boys-Activity-Toys-and-Games-5791685427406254-2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23310486/2023/5/30/be4a0bc1-e2ed-452a-a671-aae99aa7934d1685427406563-NERF-Boys-Activity-Toys-and-Games-5791685427406254-2.jpg",
+            color: "Blue",
+            category: "Activity Toys and Games",
+            wish: false,
         },
         {
             id: 2,
@@ -44,6 +50,9 @@ function Home({ cartItems, setCartItems }) {
             quantity: 1,
             image: "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/22105894/2023/2/24/78caf437-63f2-40c2-91e7-41cff4e770d41677230696208DearJoyKidsAvocadoPandaTeddySoftToy1.jpg",
             extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/22105894/2023/2/24/63cada70-4b23-4abe-92a6-ec8046dfbe281677230696167DearJoyKidsAvocadoPandaTeddySoftToy2.jpg",
+            color: "White",
+            category: "Soft Toys and Dolls",
+            wish: false,
         },
         {
             id: 3,
@@ -56,7 +65,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "M2N RETAIL",
             quantity: 1,
             image: "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/21562964/2023/1/16/a7bc3718-af77-477e-840b-6bdcd35d32f61673858937203ActionFiguresandPlaySet1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/21562964/2023/1/16/e02dad82-3361-4ec1-a304-e90bb7b82a5c1673858937214ActionFiguresandPlaySet2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/21562964/2023/1/16/e02dad82-3361-4ec1-a304-e90bb7b82a5c1673858937214ActionFiguresandPlaySet2.jpg",
+            color: "White",
+            category: "Soft Toys and Dolls",
+            wish: false,
         },
         {
             id: 4,
@@ -69,7 +81,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "M2N RETAIL",
             quantity: 1,
             image: "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/26338022/2023/12/9/0eafef96-5b07-4a26-ab9a-70be8f8f431e1702105015140SoftToysandDolls1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/26338022/2023/12/9/514eb406-2c78-4cb0-875f-1394f56fdc391702105015133SoftToysandDolls6.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/26338022/2023/12/9/514eb406-2c78-4cb0-875f-1394f56fdc391702105015133SoftToysandDolls6.jpg",
+            color: "White",
+            category: "Soft Toys and Dolls",
+            wish: false,
         },
         {
             id: 5,
@@ -82,11 +97,14 @@ function Home({ cartItems, setCartItems }) {
             seller: "M2N RETAIL",
             quantity: 1,
             image: "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/19787288/2022/9/5/f0e29b15-5969-4f08-b632-a7982bbe82e71662351782846DukieKookyKidsPinkRabbitSoftToys1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/19787288/2022/9/5/312a477e-242b-4146-8500-a066410fb9351662351782860DukieKookyKidsPinkRabbitSoftToys6.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/19787288/2022/9/5/312a477e-242b-4146-8500-a066410fb9351662351782860DukieKookyKidsPinkRabbitSoftToys6.jpg",
+            color: "Pink",
+            category: "Soft Toys and Dolls",
+            wish: false,
         },
         {
             id: 6,
-            name: "PLANET of Toys",
+            name: "PLANET OF TOYS",
             desc: "Kids Heavy Duty Bow And Arrow Set With Target Board",
             rating: 4.3,
             price: 599,
@@ -95,7 +113,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "PLANET OF TOYS",
             quantity: 1,
             image: "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/23902012/2023/7/6/6b1b5fd4-d1e0-4905-86e4-a729670635d11688641723928PLANETofToysKidsHeavyDutyBowandArrowSetWithTargetBoard1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23902012/2023/7/6/9011f362-06a0-4b7c-bee4-1dd6b435b7dc1688641723900PLANETofToysKidsHeavyDutyBowandArrowSetWithTargetBoard3.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23902012/2023/7/6/9011f362-06a0-4b7c-bee4-1dd6b435b7dc1688641723900PLANETofToysKidsHeavyDutyBowandArrowSetWithTargetBoard3.jpg",
+            color: "Green",
+            category: "Activity Toys and Games",
+            wish: false,
         },
         {
             id: 7,
@@ -108,7 +129,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "M2N RETAIL",
             quantity: 1,
             image: "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/25467322/2023/10/13/aad592a3-0dad-483e-a00f-e1bddb0c2da51697188709453WembleyBarkingDogMusicalToys1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/25467322/2023/10/13/a4ca0738-9eb3-4f32-9021-610c339182ce1697188709468WembleyBarkingDogMusicalToys2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/25467322/2023/10/13/a4ca0738-9eb3-4f32-9021-610c339182ce1697188709468WembleyBarkingDogMusicalToys2.jpg",
+            color: "White",
+            category: "Soft Toys and Dolls",
+            wish: false,
         },
         {
             id: 8,
@@ -121,7 +145,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "Whole9yards Online LLP",
             quantity: 1,
             image: "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2021/3/16/a3a5c74b-2acb-4973-834f-22877f65830d1615886106763-1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/productimage/2021/3/16/de531941-68b9-4735-b730-4a324af24bd51615886106790-2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/productimage/2021/3/16/de531941-68b9-4735-b730-4a324af24bd51615886106790-2.jpg",
+            color: "Red",
+            category: "Construction Toys",
+            wish: false,
         },
         {
             id: 9,
@@ -134,7 +161,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "Baby Cart LLP",
             quantity: 1,
             image: "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/23902012/2023/7/6/6b1b5fd4-d1e0-4905-86e4-a729670635d11688641723928PLANETofToysKidsHeavyDutyBowandArrowSetWithTargetBoard1.jpghttps://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23453448/2023/5/29/2e04378f-7edc-4835-81e0-0d7c0e4f79d01685344787841BirdInTheSkyBedHangingRattleToyRotatingCotMobile-Blue1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23453448/2023/5/29/c0ede0e7-cc62-4253-bd20-a98cd130f0a91685344787856BirdInTheSkyBedHangingRattleToyRotatingCotMobile-Blue3.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23453448/2023/5/29/c0ede0e7-cc62-4253-bd20-a98cd130f0a91685344787856BirdInTheSkyBedHangingRattleToyRotatingCotMobile-Blue3.jpg",
+            color: "Blue",
+            category: "Infant and Pre-School Toys",
+            wish: false,
         },
         {
             id: 10,
@@ -147,7 +177,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "MUREN IMPEX PRIVATE LIMITED",
             quantity: 1,
             image: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23983054/2023/7/12/64dfbbda-cbb7-4350-9996-5e8f2af451291689152325965MURENKidsDancingBoyLightSoundToyVehicle1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23983054/2023/7/12/42b5ca3c-c30a-4f1f-92ea-4bd7a533c4ac1689152326004MURENKidsDancingBoyLightSoundToyVehicle2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23983054/2023/7/12/42b5ca3c-c30a-4f1f-92ea-4bd7a533c4ac1689152326004MURENKidsDancingBoyLightSoundToyVehicle2.jpg",
+            color: "Blue",
+            category: "Activity Toys and Games",
+            wish: false,
         },
         {
             id: 11,
@@ -160,7 +193,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "Supercom Net",
             quantity: 1,
             image: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24542112/2023/9/12/dd64df57-eb14-4a60-bb76-bf7af3c710ba1694521039809LearningandDevelopmentToysStorioUnisexKidsActivityToysandGam1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24542112/2023/9/12/c7fd26bc-42ed-48a1-b027-81eb37286fb11694521039824LearningandDevelopmentToysStorioUnisexKidsActivityToysandGam2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24542112/2023/9/12/c7fd26bc-42ed-48a1-b027-81eb37286fb11694521039824LearningandDevelopmentToysStorioUnisexKidsActivityToysandGam2.jpg",
+            color: "Red",
+            category: "Toy Vehicles",
+            wish: false,
         },
         {
             id: 12,
@@ -173,7 +209,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "M2N RETAIL",
             quantity: 1,
             image: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/16620114/2021/12/27/ffc3f162-e248-4747-bcdd-7723b282f3f71640601451331SoftToysandDolls1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/16620114/2021/12/27/7bab1b69-cff6-43de-827c-3d3fe87d02b51640601451341SoftToysandDolls2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/16620114/2021/12/27/7bab1b69-cff6-43de-827c-3d3fe87d02b51640601451341SoftToysandDolls2.jpg",
+            color: "Blue",
+            category: "Soft Toys and Dolls",
+            wish: false,
         },
         {
             id: 13,
@@ -186,7 +225,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "M2N RETAIL",
             quantity: 1,
             image: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/20475986/2022/10/20/f3a4530f-204a-4c67-b504-a763f0f92eff1666276624609DearJoyKidsGreyBrownElephantMonkeySoftToy1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/20475986/2022/10/20/3a77ae6e-0050-4589-8e25-f83a359b3e6a1666276624618DearJoyKidsGreyBrownElephantMonkeySoftToy2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/20475986/2022/10/20/3a77ae6e-0050-4589-8e25-f83a359b3e6a1666276624618DearJoyKidsGreyBrownElephantMonkeySoftToy2.jpg",
+            color: "White",
+            category: "Soft Toys and Dolls",
+            wish: false,
         },
         {
             id: 14,
@@ -199,7 +241,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "MUREN IMPEX PRIVATE LIMITED",
             quantity: 1,
             image: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24949418/2023/9/13/30f4dc29-41b1-47ef-a887-2233e06414951694592659100MURENJumboHopscotchFunActivityGame1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24949418/2023/9/13/5a01476c-7703-4d0b-a94c-91b70d104e6e1694592659066MURENJumboHopscotchFunActivityGame2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24949418/2023/9/13/5a01476c-7703-4d0b-a94c-91b70d104e6e1694592659066MURENJumboHopscotchFunActivityGame2.jpg",
+            color: "Blue",
+            category: "Learning and Development Toys",
+            wish: false,
         },
         {
             id: 15,
@@ -212,7 +257,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "MUREN IMPEX PRIVATE LIMITED",
             quantity: 1,
             image: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24949370/2023/9/13/9f86fa27-5205-4d71-a707-6ed696a78a2a1694594902099MURENSnakeLadderFloorActivityGameWithBigDice1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24949370/2023/9/13/9ca493a2-f73d-4ae0-b0c6-af3c4a13f2181694594902163MURENSnakeLadderFloorActivityGameWithBigDice2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24949370/2023/9/13/9ca493a2-f73d-4ae0-b0c6-af3c4a13f2181694594902163MURENSnakeLadderFloorActivityGameWithBigDice2.jpg",
+            color: "Red",
+            category: "Learning and Development Toys",
+            wish: false,
         },
         {
             id: 16,
@@ -225,7 +273,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "Whole9yards Online LLP",
             quantity: 1,
             image: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/25438686/2023/10/11/a50e54be-1f95-4195-825d-7f23259d3df41697009349422WEMBLEYKidsRedYellowMonkeyDancingWithVoiceSoundEffectControl1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/25438686/2023/10/11/f966b034-ac3e-471c-b4cf-5ca2bef870361697009349427WEMBLEYKidsRedYellowMonkeyDancingWithVoiceSoundEffectControl2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/25438686/2023/10/11/f966b034-ac3e-471c-b4cf-5ca2bef870361697009349427WEMBLEYKidsRedYellowMonkeyDancingWithVoiceSoundEffectControl2.jpg",
+            color: "Yellow",
+            category: "Infant and Pre-School Toys",
+            wish: false,
         },
         {
             id: 17,
@@ -238,7 +289,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "Supercom Net",
             quantity: 1,
             image: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23296414/2023/5/30/a12d0c47-eada-4532-9564-bb3a1daced671685427342704-Hasbro-Gaming-Unisex-Kids-Activity-Toys-and-Games-8721685427-1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23296414/2023/5/30/326fffe0-a358-4f44-8227-3f27a8cab7411685427342683-Hasbro-Gaming-Unisex-Kids-Activity-Toys-and-Games-8721685427-2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23296414/2023/5/30/326fffe0-a358-4f44-8227-3f27a8cab7411685427342683-Hasbro-Gaming-Unisex-Kids-Activity-Toys-and-Games-8721685427-2.jpg",
+            color: "Blue",
+            category: "Activity Toys and Games",
+            wish: false,
         },
         {
             id: 18,
@@ -251,7 +305,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "Haitain Marketing and Consulting Pvt Ltd",
             quantity: 1,
             image: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/21870118/2023/2/6/9eec67d9-a285-46c1-9f23-538a4d5f22ef1675699872993SoftToysandDolls1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/21870118/2023/2/6/c60085a1-ceac-4262-96af-6657ae9aea6d1675699873048SoftToysandDolls6.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/21870118/2023/2/6/c60085a1-ceac-4262-96af-6657ae9aea6d1675699873048SoftToysandDolls6.jpg",
+            color: "Pink",
+            category: "Soft Toys and Dolls",
+            wish: false,
         },
         {
             id: 19,
@@ -264,7 +321,10 @@ function Home({ cartItems, setCartItems }) {
             seller: "MIARCUS RETAILS PRIVATE LIMITED",
             quantity: 1,
             image: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24676910/2023/10/16/fdb9947e-deb2-411a-9314-7d2b093010581697445974722MiArcusKidsMinoCloudKnittedSoftToy1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24676910/2023/10/16/f9cdddef-d55e-4a60-b1ad-958793816b901697445974734MiArcusKidsMinoCloudKnittedSoftToy2.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24676910/2023/10/16/f9cdddef-d55e-4a60-b1ad-958793816b901697445974734MiArcusKidsMinoCloudKnittedSoftToy2.jpg",
+            color: "White",
+            category: "Soft Toys and Dolls",
+            wish: false,
         },
         {
             id: 20,
@@ -277,12 +337,23 @@ function Home({ cartItems, setCartItems }) {
             seller: "SAMARA RETAIL INDIA PRIVATE LIMITED",
             quantity: 1,
             image: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/21765536/2023/4/17/1082bb48-cb5f-417f-ab45-52fe54e803891681708923534-haus--kinder-Kids-Lilly-Cotton-Bunny-Rag-Doll-39516817089233-1.jpg",
-            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/21765536/2023/4/17/b490197d-2132-4463-8910-77c4e5293fff1681708923508-haus--kinder-Kids-Lilly-Cotton-Bunny-Rag-Doll-39516817089233-3.jpg"
+            extraImg: "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/21765536/2023/4/17/b490197d-2132-4463-8910-77c4e5293fff1681708923508-haus--kinder-Kids-Lilly-Cotton-Bunny-Rag-Doll-39516817089233-3.jpg",
+            color: "Pink",
+            category: "Soft Toys and Dolls",
+            wish: false,
         },
-    ]
+    ];
+
     const dispatch = useDispatch();
+    const [items, setItems] = useState(itemsList);
     const [selectedItem, setSelectedItem] = useState(null);
     const [contentView, setContentView] = useState(true);
+    const [colorFilter, setColorFilter] = useState([]);
+    const [brandFilter, setBrandFilter] = useState([]);
+    const [offerFilter, setOfferFilter] = useState([]);
+    const [priceFilter, setPriceFilter] = useState([]);
+    const [categoryFilter, setCategoryFilter] = useState([]);
+    const [filteredResult, setFilteredResult] = useState(items);
     const handleClick = (item) => {
         setSelectedItem(item);
         setContentView(false);
@@ -293,6 +364,122 @@ function Home({ cartItems, setCartItems }) {
             payload: itemToAdd
         });
     };
+    const handleColor = (color) => {
+        let checked = colorFilter.some(item => item.text === color);
+        if (checked) {
+            setColorFilter(colorFilter.filter(item => item.text !== color));
+        }
+        else {
+            setColorFilter((prevColorFilter) => {
+                const newColorFilter = [...prevColorFilter, { id: prevColorFilter.length + 1, text: color }];
+                return newColorFilter;
+            });
+        }
+    }
+    const handleBrand = (brand) => {
+        let checked = brandFilter.some(item => item.text === brand);
+        if (checked) {
+            let filtered = brandFilter.filter(item => item.text !== brand);
+            setBrandFilter(filtered);
+        }
+        else {
+            setBrandFilter((prevBrandFilter) => {
+                const newBrandFilter = [...prevBrandFilter, { id: prevBrandFilter.length + 1, text: brand }];
+                return newBrandFilter;
+            });
+        }
+    }
+    const handleOffer = (offer) => {
+        let checked = offerFilter.some(item => item.text === offer);
+        if (checked) {
+            setOfferFilter(offerFilter.filter(item => item.text !== offer));
+        }
+        else {
+            setOfferFilter((prevOfferFilter) => {
+                const newOfferFilter = [...prevOfferFilter, { id: prevOfferFilter.length + 1, text: offer }];
+                return newOfferFilter;
+            });
+        }
+    }
+    const handleCategory = (section) => {
+        let checked = categoryFilter.some(item => item.text === section);
+        console.log(checked);
+        if (checked) {
+            setCategoryFilter(categoryFilter.filter(item => item.text !== section));
+            console.log(categoryFilter);
+        }
+        else {
+            setCategoryFilter((prevCategoryFilter) => {
+                const newCategoryFilter = [...prevCategoryFilter, { id: prevCategoryFilter.length + 1, text: section }];
+                console.log(newCategoryFilter);
+                return newCategoryFilter;
+            });
+        }
+    }
+    const handlePrice = (costFrom, costTo) => {
+        let checked = priceFilter.some(item => item.start === costFrom);
+        if (checked) {
+            setPriceFilter(priceFilter.filter(item => item.text !== costFrom));
+        }
+        else {
+            setPriceFilter((prevPriceFilter) => {
+                const newPriceFilter = [...prevPriceFilter, { id: prevPriceFilter.length + 1, start: costFrom, end: costTo }];
+                return newPriceFilter;
+            });
+        }
+    }
+    const handleFilter = () => {
+        let filteredItems = items;
+
+        if (colorFilter.length !== 0) {
+            filteredItems = filteredItems.filter(item =>
+                colorFilter.some(content => item.color === content.text)
+            );
+        }
+
+        if (brandFilter.length !== 0) {
+            filteredItems = filteredItems.filter(item =>
+                brandFilter.some(content => item.name === content.text)
+            );
+        }
+
+        if (offerFilter.length !== 0) {
+            filteredItems = filteredItems.filter(item =>
+                offerFilter.some(content => item.off >= content.text)
+            );
+        }
+
+        if (categoryFilter.length !== 0) {
+            filteredItems = filteredItems.filter(item =>
+                categoryFilter.some(content => item.category === content.text)
+            );
+        }
+
+        if (priceFilter.length !== 0) {
+            filteredItems = filteredItems.filter(item =>
+                priceFilter.some(content => item.price >= content.start && item.price <= content.end)
+            );
+        }
+        setFilteredResult(filteredItems);
+    };
+    const handleCategoryRoute = (name) => {
+        setFilteredResult(items.filter((item) => item.category === name));
+    };
+    const handleWish = (list) => {
+        const updatedItemsList = items.map(item => {
+            if (item.id === list.id) {
+                return { ...item, wish: !item.wish };
+            }
+            return item;
+        });
+        console.log(updatedItemsList)
+        setItems(updatedItemsList);
+        dispatch({
+            type: 'ADD_WISH',
+            payload: list,
+        });
+        setFilteredResult(updatedItemsList);
+    }
 
     return (
         <div>
@@ -300,29 +487,41 @@ function Home({ cartItems, setCartItems }) {
                 <div className='header'>
                     <img src={logo} alt='logo' width="60" height="60" />
                     <div className='menuLink'>
-                        <p>MEN</p>
-                        <p>WOMEN</p>
-                        <p>KIDS</p>
-                        <p>HOME & LIVING</p>
-                        <p>BEAUTY</p>
-                        <p>STUDIO</p>
+                        <a href="#" onClick={() => { handleCategoryRoute("Activity Toys and Games"); }}>ACTIVITY TOYS</a>
+                        <a href="#" onClick={() => { handleCategoryRoute("Learning and Development Toys"); }}>LEARNING TOYS</a>
+                        <a href="#" onClick={() => { handleCategoryRoute("Soft Toys and Dolls"); }}>SOFT TOYS</a>
+                        <a href="#" onClick={() => { handleCategoryRoute("Toy Vehicles"); }}>TOY VEHICLES</a>
                     </div>
                     <div className='search'>
                         <img src={search} alt='search' width="20" height="20" />
                         <input type='text' placeholder='Search for products,brands and more' />
                     </div>
                     <div className='headerIcon'>
-                        <div>
-                            <img src={house} alt='person' width="25" height="25" onClick={() => setContentView(true)} />
+                        <div className='headerIconBox'>
+                            <Link to="/">
+                                <img src={house} alt='person' width="25" height="22" onClick={() => setContentView(true)} />
+                            </Link>
                             <h6>home</h6>
                         </div>
-                        <div>
-                            <img src={heart} alt='heart' width="25" height="25" />
+                        <div className='headerIconBox'>
+                            <Link to={'/wish'}>
+                                <div className='bagBox'>
+                                    <img src={heart} alt='heart' width="22" height="22" />
+                                    {
+                                        wishItems.length !== 0 && <div>{wishItems.length}</div>
+                                    }
+                                </div>
+                            </Link>
                             <h6>Wishlist</h6>
                         </div>
-                        <div>
+                        <div className='headerIconBox'>
                             <Link to="/cart">
-                                <img src={bag} alt='bag' width="25" height="21" />
+                                <div className='bagBox'>
+                                    <img src={bag} alt='bag' width="25" height="21" />
+                                    {
+                                        cartItems.length !== 0 && <div>{cartItems.length}</div>
+                                    }
+                                </div>
                             </Link>
                             <h6>Bag</h6>
                         </div>
@@ -342,7 +541,7 @@ function Home({ cartItems, setCartItems }) {
                             <div>FILTERS</div>
                             <div className='bundleDown'>
                                 <div>
-                                    <p>Bundles</p>
+                                    <p>Ratings</p>
                                     <img src={arrow} alt='arrow' height="13" width="13" />
                                 </div>
                                 <div>
@@ -376,14 +575,14 @@ function Home({ cartItems, setCartItems }) {
                                         <img src={search} alt='search' width="18" height="18" />
                                     </div>
                                 </div>
-                                <label><input type='checkbox' /> Activity Toys and Games<span>(1182)</span></label>
-                                <label><input type='checkbox' /> Soft Toys and Dolls<span>(1004)</span></label>
-                                <label><input type='checkbox' /> Learning and Development Toys</label>
-                                <label><input type='checkbox' /> Art and Craft<span>(197)</span></label>
-                                <label><input type='checkbox' /> Toy Vehicles<span>(176)</span></label>
-                                <label><input type='checkbox' /> Infant and Pre-School Toys<span>(97)</span></label>
-                                <label><input type='checkbox' /> Ride On Vehicles<span>(94)</span></label>
-                                <label><input type='checkbox' /> Construction Toys<span>(72)</span></label>
+                                <label><input type='checkbox' onClick={() => handleCategory("Activity Toys and Games")} /> Activity Toys and Games<span>(1182)</span></label>
+                                <label><input type='checkbox' onClick={() => handleCategory("Soft Toys and Dolls")} /> Soft Toys and Dolls<span>(1004)</span></label>
+                                <label><input type='checkbox' onClick={() => handleCategory("Learning and Development Toys")} /> Learning and Development Toys</label>
+                                <label><input type='checkbox' onClick={() => handleCategory("Art and Craft")} /> Art and Craft<span>(197)</span></label>
+                                <label><input type='checkbox' onClick={() => handleCategory("Toy Vehicles")} /> Toy Vehicles<span>(176)</span></label>
+                                <label><input type='checkbox' onClick={() => handleCategory("Infant and Pre-School Toys")} /> Infant and Pre-School Toys<span>(97)</span></label>
+                                <label><input type='checkbox' onClick={() => handleCategory("Ride On Vehicles")} /> Ride On Vehicles<span>(94)</span></label>
+                                <label><input type='checkbox' onClick={() => handleCategory("Construction Toys")} /> Construction Toys<span>(72)</span></label>
                                 <div className='more'>+ 3 more</div>
                             </div>
                             <div className='brand'>
@@ -393,22 +592,22 @@ function Home({ cartItems, setCartItems }) {
                                         <img src={search} alt='search' width="18" height="18" />
                                     </div>
                                 </div>
-                                <label><input type='checkbox' /> DukieKooky<span>(262)</span></label>
-                                <label><input type='checkbox' /> Baby Moo<span>(191)</span></label>
-                                <label><input type='checkbox' /> Funskool<span>(183)</span></label>
-                                <label><input type='checkbox' /> Dreamland<span>(167)</span></label>
-                                <label><input type='checkbox' /> Mirada<span>(141)</span></label>
-                                <label><input type='checkbox' /> Frank<span>(138)</span></label>
-                                <label><input type='checkbox' /> luyk<span>(124)</span></label>
-                                <label><input type='checkbox' /> WEMBLEY<span>(117)</span></label>
+                                <label><input type='checkbox' onClick={() => handleBrand("DukieKooky")} /> DukieKooky<span>(262)</span></label>
+                                <label><input type='checkbox' onClick={() => handleBrand("Baby Moo")} /> Baby Moo<span>(191)</span></label>
+                                <label><input type='checkbox' onClick={() => handleBrand("Funskool")} /> Funskool<span>(183)</span></label>
+                                <label><input type='checkbox' onClick={() => handleBrand("Dreamland")} /> Dreamland<span>(167)</span></label>
+                                <label><input type='checkbox' onClick={() => handleBrand("Mirada")} /> Mirada<span>(141)</span></label>
+                                <label><input type='checkbox' onClick={() => handleBrand("Frank")} /> Frank<span>(138)</span></label>
+                                <label><input type='checkbox' onClick={() => handleBrand("luyk")} /> luyk<span>(124)</span></label>
+                                <label><input type='checkbox' onClick={() => handleBrand("WEMBLEY")} /> WEMBLEY<span>(117)</span></label>
                                 <div className='more'>+ 130 more</div>
                             </div>
                             <div className='price'>
                                 <h5>PRICE</h5>
-                                <label><input type='checkbox' /> Rs. 36 to Rs. 4777<span>(3616)</span></label>
-                                <label><input type='checkbox' /> Rs. 4777 to Rs. 9518<span>(41)</span></label>
-                                <label><input type='checkbox' /> Rs. 9518 to Rs. 14259<span>(3)</span></label>
-                                <label><input type='checkbox' /> Rs. 14259 to Rs. 19000<span>(2)</span></label>
+                                <label><input type='checkbox' onClick={() => handlePrice(0, 500)} /> Rs. 0 to Rs. 500<span>(3616)</span></label>
+                                <label><input type='checkbox' onClick={() => handlePrice(501, 1000)} /> Rs. 501 to Rs. 1000<span>(41)</span></label>
+                                <label><input type='checkbox' onClick={() => handlePrice(1001, 2000)} /> Rs. 1001 to Rs. 2000<span>(3)</span></label>
+                                <label><input type='checkbox' onClick={() => handlePrice(2001, 19000)} /> Rs. 2001 and above<span>(2)</span></label>
                             </div>
                             <div className='color'>
                                 <div className='colorHead'>
@@ -417,41 +616,53 @@ function Home({ cartItems, setCartItems }) {
                                         <img src={search} alt='search' width="18" height="18" />
                                     </div>
                                 </div>
-                                <label><input type='checkbox' /> <img src={blue} alt='search' width="18" height="18" /> Blue <span>(564)</span></label>
-                                <label><input type='checkbox' /> <img src={pink} alt='search' width="18" height="18" /> Pink <span>(340)</span></label>
-                                <label><input type='checkbox' /> <img src={red} alt='search' width="18" height="18" /> Red <span>(332)</span></label>
-                                <label><input type='checkbox' /> <img src={yellow} alt='search' width="18" height="18" /> Yellow <span>(322)</span></label>
-                                <label><input type='checkbox' /> <img src={green} alt='search' width="18" height="18" /> Green <span>(306)</span></label>
-                                <label><input type='checkbox' /> <img src={white} alt='search' width="18" height="18" /> White <span>(296)</span></label>
+                                <label><input type='checkbox' onClick={() => handleColor("Blue")} /> <img src={blue} alt='search' width="18" height="18" /> Blue <span>(564)</span></label>
+                                <label><input type='checkbox' onClick={() => handleColor("Pink")} /> <img src={pink} alt='search' width="18" height="18" /> Pink <span>(340)</span></label>
+                                <label><input type='checkbox' onClick={() => handleColor("Red")} /> <img src={red} alt='search' width="18" height="18" /> Red <span>(332)</span></label>
+                                <label><input type='checkbox' onClick={() => handleColor("Yellow")} /> <img src={yellow} alt='search' width="18" height="18" /> Yellow <span>(322)</span></label>
+                                <label><input type='checkbox' onClick={() => handleColor("Green")} /> <img src={green} alt='search' width="18" height="18" /> Green <span>(306)</span></label>
+                                <label><input type='checkbox' onClick={() => handleColor("White")} /> <img src={white} alt='search' width="18" height="18" /> White <span>(296)</span></label>
                                 <div className='more'>+ 29 more</div>
                             </div>
                             <div className='range'>
                                 <h5>DISCOUNT RANGE</h5>
-                                <label><input type='checkbox' /> 10% and above</label>
-                                <label><input type='checkbox' /> 20% and above</label>
-                                <label><input type='checkbox' /> 30% and above</label>
-                                <label><input type='checkbox' /> 40% and above</label>
-                                <label><input type='checkbox' /> 50% and above</label>
-                                <label><input type='checkbox' /> 60% and above</label>
-                                <label><input type='checkbox' /> 70% and above</label>
-                                <label><input type='checkbox' /> 80% and above</label>
+                                <label><input type='checkbox' onClick={() => handleOffer(10)} /> 10% and above</label>
+                                <label><input type='checkbox' onClick={() => handleOffer(20)} /> 20% and above</label>
+                                <label><input type='checkbox' onClick={() => handleOffer(30)} /> 30% and above</label>
+                                <label><input type='checkbox' onClick={() => handleOffer(40)} /> 40% and above</label>
+                                <label><input type='checkbox' onClick={() => handleOffer(50)} /> 50% and above</label>
+                                <label><input type='checkbox' onClick={() => handleOffer(60)} /> 60% and above</label>
+                                <label><input type='checkbox' onClick={() => handleOffer(70)} /> 70% and above</label>
+                                <label><input type='checkbox' onClick={() => handleOffer(80)} /> 80% and above</label>
                             </div>
+                            <div className='applyFilter' onClick={handleFilter}>
+                                <p>Apply</p>
+                            </div>
+                            <div className='showAll' onClick={() => setFilteredResult(items)}>
+                                <p>Show All</p></div>
                         </div>
                         <div className='detailName'>
                             {
-                                items.map((item) => (
-                                    <div className='materials' onClick={() => handleClick(item)}>
-                                        <img src={item.image} alt='NERF' width="200" height="250" className='materialImg' />
+                                filteredResult.map((item) => (
+                                    <div className='materials'>
+                                        <img src={item.image} alt='NERF' width="200" height="250" className='materialImg' onClick={() => handleClick(item)} />
                                         <div className='starBox'>
                                             <p className='rating'>{item.rating}</p>
                                             <img src={star} alt='star' height="15" width="15" />
                                         </div>
                                         <h4 className='itemName'>{item.name}</h4>
                                         <p className='desc'>{item.desc}</p>
-                                        <div className='wish'>
-                                            <img src={heart} alt='heart' width="20" height="20" />
-                                            <p>WISHLIST</p>
-                                        </div>
+                                        {item.wish === true ?
+                                            <div className='wished wish' onClick={() => handleWish(item)}>
+                                                <img src={heartRed} alt='heart' width="20" height="20" />
+                                                <p>WISHLISTED</p>
+                                            </div>
+                                            :
+                                            <div className='wish' onClick={() => handleWish(item)}>
+                                                <img src={heart} alt='heart' width="20" height="20" />
+                                                <p>WISHLIST</p>
+                                            </div>
+                                        }
                                         <p className='size'>Sizes: Onesize</p>
                                         <div className='amount'>
                                             <p className='priceAmt'>Rs.{item.price}</p>

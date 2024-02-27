@@ -6,6 +6,18 @@ export const addCart = (item) => {
         payload: item
     };
 }
+export const addWish = (item) => {
+    return {
+        type: actionTypes.ADD_WISH,
+        payload: item
+    };
+}
+export const removeWish = (itemId) => {
+    return {
+        type: actionTypes.REMOVE_WISH,
+        payload: itemId
+    };
+}
 
 export const removeCart = (itemId) => {
     return {
