@@ -1,5 +1,5 @@
 import React from "react";
-export default function Home() {
+export default function Second() {
     return (
         <div>
             <h1>Second Blog</h1>

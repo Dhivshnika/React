@@ -7,6 +7,7 @@ export default function Home() {
       <ul>
         <li><Link href="/Profile">Profile</Link></li>
         <li><Link href="/Product">Product</Link></li>
+        <li><Link href="/Articles">Articles</Link></li>
         <li><Link href="/Blog">Blog</Link></li>
         <li><Link href="/About">About</Link></li>
         <li><Link href="/Settings">Settings</Link></li>
