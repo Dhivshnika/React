@@ -1,0 +1,33 @@
+.container1 {
+    background-color: pink;
+    padding: 20px;
+    border-radius: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.team {
+    background-color: red;
+    padding: 20px;
+    border-radius: 5px;
+    width: 40%;
+    text-align: center;
+    height: 20pc;
+}
+
+.dashboard {
+    text-align: center;
+    width: 40%;
+    background-color: blue;
+    padding: 20px;
+    border-radius: 5px;
+}
