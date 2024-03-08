@@ -1,0 +1,142 @@
+body {
+    margin: 0px;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.cartMenuContainer {
+    height: 45pc;
+}
+
+.menuContainer {
+    background-color: rgb(64, 127, 243);
+    width: 17%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-top: 20px;
+    color: white;
+}
+
+.cartItemBox {
+    width: 82%;
+}
+
+.shoppingBox {
+    width: 70%;
+}
+
+.shoppingBoxHead {
+    width: 95%;
+}
+
+.onshop {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.details {
+    width: 31%;
+    background-color: beige;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.detailsTitle {
+    border-bottom: 1px solid #c8c8ce;
+    padding-bottom: 20px;
+}
+
+.priceBorder {
+    border-bottom: 1px solid #c8c8ce;
+    padding-bottom: 20px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 20%;
+}
+
+.home,
+.cart,
+.user,
+.settings,
+.logout {
+    margin-top: 20px;
+    color: white;
+}
+
+Link,
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.detailBox {
+    border: 1px solid rgb(161, 157, 157);
+    border-radius: 10px;
+    width: 23%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.detailBox:hover {
+    background-color: lightgrey;
+}
+
+.detailContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.outerBox {
+    width: 80%;
+    margin-left: 20px;
+}
+
+.h4 {
+    text-align: center;
+}
+
+.ratingBox {
+    width: 80%;
+}
+
+.carousel {
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+.amount {
+    color: deeppink;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.info {
+    color: deeppink;
+}
+
+.itemBox {
+    border: 2px solid bisque;
+    width: 75%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+h5 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.orderButton {
+    color: white;
+    font-weight: bold;
+    background-color: deeppink;
+    padding: 5px;
+}
