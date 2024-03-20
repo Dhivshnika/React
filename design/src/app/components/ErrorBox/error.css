@@ -1,0 +1,23 @@
+.error {
+    font-size: 20px;
+    color: grey;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.lastHour {
+    color: grey;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.separator {
+    border: 1px solid rgba(232, 231, 231, 0.936);
+    margin-top: 20px;
+}
+
+.digit {
+    font-size: 30px;
+    margin-top: 0px;
+    color: black;
+}

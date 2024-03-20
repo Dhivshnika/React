@@ -1,0 +1,23 @@
+.year h1 {
+    color: rgb(53, 194, 53);
+    margin-top: 0px;
+}
+
+.growth {
+    color: rgb(188, 184, 184);
+}
+
+.growth p {
+    margin-bottom: 0px;
+}
+
+.year p {
+    color: rgb(188, 184, 184);
+    margin-top: 0px;
+    font-size: 16px;
+}
+
+h3 {
+    margin-bottom: 10px;
+    margin-top: 0px;
+}

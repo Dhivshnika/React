@@ -1,0 +1,30 @@
+.more {
+    font-size: 23px;
+    color: blueviolet;
+    margin-bottom: 0px;
+}
+
+.used {
+    font-size: 25px;
+    color: rgb(188, 184, 184);
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.data span {
+    font-size: 45px;
+}
+
+.data {
+    font-size: 30px;
+}
+
+.copy {
+    background-color: orange;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 160px;
+    height: 180px;
+    margin-top: -80px;
+}
