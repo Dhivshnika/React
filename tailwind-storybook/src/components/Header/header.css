@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+
+.logo {
+    font-family: "Protest Riot", sans-serif;
+    font-size: 30px;
+    color: orange;
+}
+
+.colorText {
+    color: orange !important;
+    font-weight: bold;
+}
+
+.navBox {
+    width: 100%;
+    background-color: red;
+}
