@@ -1,0 +1,53 @@
+.hidden {
+    display: none;
+}
+#content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.half-width{
+    width: 70%;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+#wix,#wordpress,#squarespace{
+    width: 70%;
+}
+.wix,.wordpress,.squarespace{
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.deal-box{
+    display: flex;
+    justify-content: flex-end;
+}
+.deal-content{
+    background-color: rgb(98, 158, 8);
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+.heading{
+    border-bottom: 5px solid pink;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+h1{
+    margin-bottom: 0px;
+    background-color: pink;
+    width: fit-content;
+    padding: 5px;
+}
+span{
+    color: #2F6E91;
+}
+p{
+    font-size: 20px;
+}
