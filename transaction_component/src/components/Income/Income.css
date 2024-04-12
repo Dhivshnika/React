@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+h1{
+    font-family: "Rubik", sans-serif; 
+}
+.chart-container canvas.chartjs-render-monitor {
+    border-color: transparent;
+}
+.income-tax-style{
+    color: rgb(9, 205, 71);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.income-tax-style div{
+    font-weight: bold;
+}
+.dollor{
+    font-size:large;
+    font-weight: 400;
+}
+.income{
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+}
+.income-note{
+    margin-bottom: 20px;
+    font-size: 12px;
+}

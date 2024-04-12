@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+.transaction-button{
+    background-color: #e4e8e5;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    color: black !important;
+}
+.transaction-container{
+    background-color: white;
+    font-family: "Rubik", sans-serif;
+    width: 70%;
+    height: fit-content;
+    border-radius: 20px;
+} 
+.transaction-button:hover{
+    border: 1px solid purple !important;
+    background-color: rgb(235, 218, 244) !important;
+    color: black !important;
+}
+.separator{
+    border: 1px solid #f8f8f8;
+}
+.payment-title{
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+.payment-content{
+    color: #B0BCBC;
+    margin-top: 8px;
+    font-size: 13px;
+}
+.user-layout{
+    padding-right: 30px;
+    margin-top: 10px;
+    width: 40%;
+}
+.user-name{
+    font-size: 17px;
+}
+.user-mail{
+    font-size: 13px;
+    color: #C0BCBC;
+}
+.user-price{
+    font-size: 19px;
+}
+.loadMore{
+    background-color: rgb(43, 41, 41);
+    color: white;
+    border-radius: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
