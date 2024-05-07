@@ -1,0 +1,35 @@
+.chatContainer{
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 565px;
+}
+.chatBox{
+    background-color: white;
+    width: 100%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top: 1px solid #f6a192;
+}
+.output-style{
+    background-color: rgb(223, 238, 243);
+    padding: 10px;
+    margin-right: 20px;
+    border-top-left-radius: 10px;
+    
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.chatBox input{
+    border: none;
+    outline: none;
+    padding: 15px;
+    width:90%;
+    border-bottom-left-radius: 15px;
+}
+.time{
+    color: gray;
+    font-size:x-small;
+    margin-top: 10px;
+    padding-left: 10px;
+}
