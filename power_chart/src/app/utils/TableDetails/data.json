@@ -1,0 +1,113 @@
+[
+    {
+      "key": 1,
+      "Sources": "Bottling.Boiler",
+      "voltage": 481,
+      "current": 1436,
+      "real": 1138,
+      "reactive": 374,
+      "apparent": 1198,
+      "power": 95.0
+    },
+    {
+      "key": 2,
+      "Sources": "Bottling.Carbonator",
+      "voltage": 481,
+      "current": 1436,
+      "real": 1138,
+      "reactive": 374,
+      "apparent": 1198,
+      "power": 95.0
+    },
+    {
+      "key": 3,
+      "Sources": "Bottling.Boiler",
+      "voltage": 481,
+      "current": 30,
+      "real": 21,
+      "reactive": 15,
+      "apparent": 25,
+      "power": 81.7
+    },
+    {
+      "key": 4,
+      "Sources": "Bottling.Compressor",
+      "voltage": 481,
+      "current": 1436,
+      "real": 1138,
+      "reactive": 374,
+      "apparent": 1198,
+      "power": 95.0
+    },
+    {
+      "key": 5,
+      "Sources": "Bottling.Condenser",
+      "voltage": 481,
+      "current": 1436,
+      "real": 1138,
+      "reactive": 374,
+      "apparent": 1198,
+      "power": 95.0
+    },
+    {
+      "key": 6,
+      "Sources": "Bottling.Filter",
+      "voltage": 481,
+      "current": 1436,
+      "real": 1138,
+      "reactive": 374,
+      "apparent": 1198,
+      "power": 95.0
+    },
+    {
+      "key": 7,
+      "Sources": "Bottling.Labeler",
+      "voltage": 481,
+      "current": 1436,
+      "real": 1138,
+      "reactive": 374,
+      "apparent": 1198,
+      "power": 95.0
+    },
+    {
+      "key": 8,
+      "Sources": "Bottling.MoldingMachine",
+      "voltage": 481,
+      "current": 1436,
+      "real": 1138,
+      "reactive": 374,
+      "apparent": 1198,
+      "power": 95.0
+    },
+    {
+      "key": 9,
+      "Sources": "CIP.Station1",
+      "voltage": 481,
+      "current": 1436,
+      "real": 1138,
+      "reactive": 374,
+      "apparent": 1198,
+      "power": 95.0
+    },
+    {
+      "key": 10,
+      "Sources": "CIP.Station2",
+      "voltage": 481,
+      "current": 1436,
+      "real": 1138,
+      "reactive": 374,
+      "apparent": 1198,
+      "power": 95.0
+    },
+    {
+      "key": 11,
+      "Sources": "CIP.Station3",
+      "voltage": 481,
+      "current": 1436,
+      "real": 1138,
+      "reactive": 374,
+      "apparent": 1198,
+      "power": 95.0
+    }
+  ]
+  

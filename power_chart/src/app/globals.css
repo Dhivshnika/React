@@ -1,0 +1,22 @@
+.source-column{
+    border-right: 1px solid rgb(236, 236, 236);
+}
+
+.box-header{
+    background-color: white;
+    border-top: 10px solid green;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.select-style{
+    border: 1px solid black;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+.subTitle{
+    color: grey;
+    margin-bottom: 5px;
+}
